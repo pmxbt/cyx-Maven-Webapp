@@ -1,0 +1,56 @@
+body{
+	background-color: #FAFFFF;
+}
+
+#form table{
+	
+	text-align:center;
+	width: 100%;
+	border-collapse: collapse;
+	margin: auto;
+}
+#find{
+	height:40px;
+	text-align:left;
+	width: 100%;
+	line-height:25px;
+	padding:5px;
+	vertical-align:text-middle;
+	
+}
+
+
+.list table tbody td{
+	height:30px;
+	border:1px solid #35355D;
+}
+
+.list table thead td{
+	height:40px;
+}
+.list table thead tr{
+	background-image: url(../img/sc1.png);
+}
+#find select{
+	width: 150px;
+	height: 23px;	
+}
+
+.list{
+	width: 100%;
+}
+
+.list  tbody  tr:hover{
+	background-color:#CDD7E8;
+}
+
+a{
+	margin-right:5px;
+	text-decoration: none;
+	
+}
+
+img{
+	height:15px;
+	width:15px;
+}

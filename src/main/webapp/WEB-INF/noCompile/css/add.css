@@ -1,0 +1,30 @@
+body{
+	background-color: #FAFFFF;
+}
+
+#form table{
+	
+	text-align:center;
+	width: 100%;
+	border-collapse: collapse;
+	margin: auto;
+}
+#form table th, td{
+	height:40px;
+	border:1px solid #85859D;
+}
+#form table td{
+	text-align:left;
+	height:40px;
+	border:1px solid #85859D;
+}
+
+select,input{
+	height:25px;
+	width: 200px;
+}
+
+textarea {
+	height: 100px;
+	width: 98%;
+}

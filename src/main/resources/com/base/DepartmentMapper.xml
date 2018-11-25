@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.base.dao.DepartmentMapper">
+	
+	
+	
+	<select id="getDeptById" resultType="com.base.bean.Department">
+		select * from BASE_DEPARTMENT where id =#{id} 
+	</select>
+	
+	<select id="getDeptList" resultType="com.base.bean.Department">
+		select * from BASE_DEPARTMENT where ifdelete = 0 and type !=1
+	</select>
+	
+	
+	<insert id="save">
+		insert into BASE_DEPARTMENT(name,sort,ifdelete,type)  values(#{name},#{sort},#{ifdelete},#{type})
+	</insert>
+	
+	
+	<update id="update">
+		update BASE_DEPARTMENT set 
+		name=#{name},
+		sort=#{sort},
+		type=#{type},
+		ifdelete=#{ifdelete}
+		where id=#{id}
+	</update>
+</mapper>

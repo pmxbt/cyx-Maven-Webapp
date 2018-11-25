@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.base.dao.UserMapper">
+	
+	
+	
+	
+	<resultMap type="com.base.bean.User" id="user1">
+		<id column="id" property="id"/>
+		<result column="userName" property="userName"/>
+		<result column="password" property="password"/>
+		<result column="name" property="name"/>
+		<result column="telephone" property="telephone"/>
+		<association property="dept" select="com.base.dao.DepartmentMapper.getDeptById" column="dept_id"></association>
+	</resultMap>
+	
+	
+	<select id="getUserByUserName" resultMap="user1" >
+		select * from BASE_USER where userName=#{userName} and ifdelete=0;
+	</select>
+
+	<select id="getUserById" resultMap="user1">
+		select * from
+		BASE_USER where id=#{id};
+	</select>
+
+	<select id="getUserList" resultMap="user1">
+		select a.* from BASE_USER a left join BASE_DEPARTMENT b on a.dept_id = b.id  where a.ifdelete=0 and b.type !=1 
+	</select>
+	
+	<select id="getUserListByDeptId" resultType="com.base.bean.User">
+		select * from BASE_USER where dept_id=#{deptId}
+	</select>
+	
+	<insert id="save">
+		insert into BASE_USER(userName,password,name,sort,dept_id,ifdelete,telephone) values(#{userName},#{password},#{name},#{sort},#{dept.id},#{ifdelete},#{telephone})
+	</insert>
+	
+	<update id="update">
+		update BASE_USER set
+		userName=#{userName},
+		password=#{password},
+		name=#{name},
+		sort=#{sort},
+		dept_id=#{dept_id},
+		ifdelete=#{ifdelete},
+		telephone=#{telephone}
+		where id=#{id}
+	</update>
+	
+</mapper>
