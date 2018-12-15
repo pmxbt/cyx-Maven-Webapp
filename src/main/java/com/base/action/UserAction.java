@@ -19,6 +19,8 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
+import tools.CommonUtil;
+
 @Controller
 public class UserAction {
 
@@ -33,6 +35,7 @@ public class UserAction {
 		session.setAttribute("user", user);
 		List<Department> dept_list = service.getDeptList();
 		session.setAttribute("dept_list", dept_list);
+
 		return "redirect:/index";
 	}
 	
@@ -40,6 +43,8 @@ public class UserAction {
 	public String index(Map<String, Object> map){
 		List<Catalog> menu = service.getCatalogByType(1);
 		map.put("menu", menu);
+		String date1 = CommonUtil.getCurrentDate();
+		map.put("date1", date1);
 		return "index";
 	}
 	

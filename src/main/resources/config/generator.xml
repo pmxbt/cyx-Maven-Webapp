@@ -35,8 +35,8 @@
 	<!-- <table tableName="base_deviceType" domainObjectName="DeviceType"></table> -->
 	<!-- <table tableName="base_device" domainObjectName="Device"></table> -->
 	<!-- <table tableName="base_dealDeviceCost" domainObjectName="DealDeviceCost"></table>	 -->
-	<table tableName="base_dealTrouble" domainObjectName="DealTrouble"></table>
-	
+	<!-- <table tableName="base_dealTrouble" domainObjectName="DealTrouble"></table> -->
+	<table tableName="base_region" domainObjectName="Region"></table>
 	</context>
 
 </generatorConfiguration>
