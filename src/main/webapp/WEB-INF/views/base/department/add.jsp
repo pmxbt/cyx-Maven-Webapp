@@ -23,9 +23,21 @@
 				<input type="text" name="sort">
 			</td>
 		</tr>
+		<tr>
+			<th>类型</th>
+			<td colspan="3">
+				<select name="mold" id="mold">
+					<option></option>
+					<c:forEach items="${moldMap}" var="d">
+						<option value="${d.key}">${d.value}</option>
+					</c:forEach>
+				</select>
+				
+			</td>
+		</tr>
 		  <tr>
    	<td colspan="4" style="height:30px;line-height:30px;text-align: center;vertical-align: middle">
-   		<input type="submit"  class="btn" value="提交" style="width: 80px"/>
+   		<input type="button"  class="btn" value="提交" style="width: 80px" onclick="sub()"/>
     	<input type="button" class="btn" value="返回" style="width: 80px" onclick="javascript:history.go(-1);"/>
     </td>
    </tr>
@@ -34,5 +46,20 @@
 </form>
 </body>
   <script type="text/javascript">
+  	function sub(){
+  		if($("#mold").val()==""||$("#mold").val()==null){
+  			alert("请选择类型");
+  		}else{
+  			$.post("/cyx/department/addCheckDept",{'mold':$("#mold").val()},
+  		  			function(msg){
+  		  				if(msg =="yes"){
+  							$("#form").submit();
+  						}else{
+  							alert("本地区已有相同类型部门！");	
+  						}
+  		  		});
+  		}
+  	}
+  
   </script>
 </html>

@@ -36,7 +36,10 @@
 	<!-- <table tableName="base_device" domainObjectName="Device"></table> -->
 	<!-- <table tableName="base_dealDeviceCost" domainObjectName="DealDeviceCost"></table>	 -->
 	<!-- <table tableName="base_dealTrouble" domainObjectName="DealTrouble"></table> -->
-	<table tableName="base_region" domainObjectName="Region"></table>
+	<!-- <table tableName="base_region" domainObjectName="Region"></table> -->
+  	<!-- <table tableName="base_role" domainObjectName="Role"></table> -->
+	<table tableName="base_role_menu" domainObjectName="RoleMenu"></table>
+	<table tableName="base_role_user" domainObjectName="RoleUser"></table>
 	</context>
 
 </generatorConfiguration>

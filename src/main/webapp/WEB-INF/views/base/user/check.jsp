@@ -11,37 +11,37 @@
 </head>
 <body>
 <form action="/cyx/user/update" method="post" id="form" >
-<input type="hidden" name="id" value="${user.id}">
+<input type="hidden" name="id" value="${u.id}">
 <table>
 	<tbody>
 		<tr>
 			<th>账户</th>
 			<td>
-				<input type="text" name="userName" value="${user.userName}"  readonly="readonly">
+				<input type="text" name="userName" value="${u.userName}"  readonly="readonly">
 			</td>
 			<th>密码</th>
 			<td>
-				<input type="text" name="password" value="${user.password}"  readonly="readonly">
+				<input type="text" name="password" value="${u.password}"  readonly="readonly">
 			</td>
 		</tr>
 		<tr>
 			<th>部门</th>
 			<td>
-				<input type="text" value="${user.dept.name}" readonly="readonly">
+				<input type="text" value="${u.dept.name}" readonly="readonly">
 			</td>
 			<th>排序</th>
 			<td>
-				<input type="text" name="sort" value="${user.sort}"  readonly="readonly">
+				<input type="text" name="sort" value="${u.sort}"  readonly="readonly">
 			</td>
 		</tr>
 		<tr>
 			<th>姓名</th>
 			<td >
-				<input type="text" name="name" value="${user.name}" readonly="readonly">
+				<input type="text" name="name" value="${u.name}" readonly="readonly">
 			</td>
 			<th>电话</th>
 			<td>
-				<input type="text" name="telephone" value="${user.telephone}"  readonly="readonly">
+				<input type="text" name="telephone" value="${u.telephone}"  readonly="readonly">
 			</td>
 		</tr>
 		  <tr>

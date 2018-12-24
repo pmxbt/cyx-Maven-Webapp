@@ -13,9 +13,20 @@
 		<result column="url" property="url"/>
 		<result column="target" property="target"/>
 		<result column="sort" property="sort"/>
-		<result column="type" property="type"/>    
+		<result column="type" property="type"/>   
+		<result column="parent_id" property="parent_id"/>    
 		<collection property="list" ofType="com.base.bean.Catalog" column="id" select="getCatalogByParent_id">
 		</collection>                                    
+	</resultMap>
+	
+	<resultMap type="com.base.bean.Catalog" id="catalog2">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="url" property="url"/>
+		<result column="target" property="target"/>
+		<result column="sort" property="sort"/>
+		<result column="type" property="type"/>   
+		<result column="parent_id" property="parent_id"/>    
 	</resultMap>
 	
 	<select id="getCatalogByParent_id" resultMap="catalog1">
@@ -30,6 +41,14 @@
 	<select id="getCatalogByType" resultMap="catalog1">
 		select * from BASE_CATALOG where type =#{type}
 	</select>
+	
+	<select id="getAllCatalog" resultMap="catalog2">
+		select * from BASE_CATALOG where 1=1;
+	</select>
+	
+	
+	
+	
 	
 	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 		insert into BASE_CATALOG(name,url,target,sort,type,parent_id) values(#{name},#{url},#{target},#{sort},#{type},#{parent_id}) 

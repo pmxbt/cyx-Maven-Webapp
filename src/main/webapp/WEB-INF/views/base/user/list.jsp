@@ -45,6 +45,9 @@
 							<td>${d.dept.name}</td>
 							<td>${d.sort}</td>
 							<td>
+								<a href="/cyx/user/check?id=${d.id}" >
+									<img src="<%=request.getContextPath() %>/noCompile/img/check.png"  >
+								</a>
 								<a href="/cyx/user/delete?id=${d.id}" title="删除" 
 									onclick="javascript:if(confirm('确定删除？')){return true;}return false;">
 	       			 				<img src="<%=request.getContextPath() %>/noCompile/img/delete.png"  >

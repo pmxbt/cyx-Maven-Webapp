@@ -1,5 +1,7 @@
 package com.base.bean;
 
+import java.util.Set;
+
 public class User {
 
 	
@@ -11,6 +13,8 @@ public class User {
 	private Department dept;
 	private int ifdelete;
 	private String telephone;
+	private int regionId;
+	
 	public int getId() {
 		return id;
 	}
@@ -60,6 +64,15 @@ public class User {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+	public int getRegionId() {
+		return regionId;
+	}
+	public void setRegionId(int regionId) {
+		this.regionId = regionId;
+	}
+	
+	
+	
 	
 	
 }

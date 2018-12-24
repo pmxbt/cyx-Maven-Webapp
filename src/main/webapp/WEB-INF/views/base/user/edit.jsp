@@ -11,17 +11,18 @@
 </head>
 <body>
 <form action="/cyx/user/update" method="post" id="form" >
-<input type="hidden" name="id" value="${user.id}">
+<input type="hidden" name="id" value="${u.id}">
+<input type="hidden" name="regionId" value="${u.regionId}">
 <table>
 	<tbody>
 		<tr>
 			<th>账户</th>
 			<td>
-				<input type="text" name="userName" value="${user.userName}">
+				<input type="text" name="userName" value="${u.userName}">
 			</td>
 			<th>密码</th>
 			<td>
-				<input type="text" name="password" value="${user.password}">
+				<input type="text" name="password" value="${u.password}">
 			</td>
 		</tr>
 		<tr>
@@ -30,23 +31,23 @@
 				<select name="dept.id">
 					<option></option>
 					<c:forEach items="${deptList}" var="d">
-						<option value="${d.id}" ${d.id==user.dept.id?'selected="selected"':''} >${d.name}</option>
+						<option value="${d.id}" ${d.id==u.dept.id?'selected="selected"':''} >${d.name}</option>
 					</c:forEach>
 				</select>
 			</td>
 			<th>排序</th>
 			<td>
-				<input type="text" name="sort" value="${user.sort}">
+				<input type="text" name="sort" value="${u.sort}">
 			</td>
 		</tr>
 		<tr>
 			<th>姓名</th>
 			<td>
-				<input type="text" name="name" value="${user.name}">
+				<input type="text" name="name" value="${u.name}">
 			</td>
 			<th>电话</th>
 			<td>
-				<input type="text" name="telephone" value="${user.telephone}">
+				<input type="text" name="telephone" value="${u.telephone}">
 			</td>
 		</tr>
 		  <tr>

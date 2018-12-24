@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.base.bean.Catalog;
 import com.base.bean.Department;
+import com.base.bean.Region;
 import com.base.bean.User;
 import com.base.dao.CatalogMapper;
 import com.base.dao.DepartmentMapper;
@@ -21,6 +22,9 @@ public class UserService {
 	private CatalogMapper catalogMapper;
 	@Autowired
 	private DepartmentMapper departmentMapper;
+	@Autowired
+	private RegionService regionService;
+	
 	
 	public User getUserByUserName(String userName){
 		return userMapper.getUserByUserName(userName);
@@ -48,13 +52,13 @@ public class UserService {
 	
 
 	
-	public List<User> getUserList(){
-		return userMapper.getUserList();
+	public List<User> getUserList(int regionId){
+		return userMapper.getUserList(regionId);
 	}
 
 
-	public List<Department> getDeptList() {
-		return departmentMapper.getDeptList();
+	public List<Department> getDeptList(int regionId) {
+		return departmentMapper.getDeptList(regionId);
 	}
 
 
@@ -74,6 +78,14 @@ public class UserService {
 		}else{
 			return "no";
 		}
+	}
+
+	public Region getRegionById(int regionId) {
+		return regionService.getRegionById(regionId);
+	}
+
+	public List<Region> getRegionAllList() {
+		return regionService.getRegionAllList();
 	}
 	
 	

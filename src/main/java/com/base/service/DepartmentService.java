@@ -14,8 +14,8 @@ public class DepartmentService {
 	@Autowired
 	private DepartmentMapper m;
 	
-	public List<Department> getDeptList() {
-		return m.getDeptList();
+	public List<Department> getDeptList(int regionId) {
+		return m.getDeptList(regionId);
 	}
 
 	public void save(Department d) {
@@ -28,6 +28,23 @@ public class DepartmentService {
 
 	public void update(Department d) {
 		m.update(d);
+	}
+
+	public List<Department> getDeptListByMold(int mold,int regionId){
+		return m.getDeptListByMold(mold, regionId);
+	}
+	
+	public String addCheckDept(int mold, int regionId) {
+		if(mold ==3){
+			return "yes";
+		}else{
+			List<Department> list = m.getDeptListByMold(mold,regionId);
+			if(list.size()>0){
+				return "no";
+			}else{
+				return "yes";
+			}
+		}
 	}
 
 	

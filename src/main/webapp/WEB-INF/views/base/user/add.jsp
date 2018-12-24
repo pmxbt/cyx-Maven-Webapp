@@ -48,6 +48,20 @@
 				<input type="text" name="telephone">
 			</td>
 		</tr>
+		<c:if test="${user.regionId==1}">
+			<tr>
+				<th>地区</th>
+				<td >
+					<select name="regionId">
+						<option></option>
+						<c:forEach var= "d" items="${regionList}">
+							<option value="${d.id}">${d.name}</option>
+						</c:forEach>
+					</select>
+				</td>
+				<td colspan="2"></td>
+			</tr>
+		</c:if>
 		  <tr>
    	<td colspan="4" style="height:30px;line-height:30px;text-align: center;vertical-align: middle">
    		<input type="button"  class="btn" value="提交" style="width: 80px" onclick="on()"/>

@@ -7,13 +7,14 @@
 	<script type="text/javascript" src="<%=request.getContextPath()%>/noCompile/My97DatePicker/WdatePicker.js" defer="defer"></script>
 	<script type="text/javascript" src="<%=request.getContextPath() %>/noCompile/js/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/noCompile/css/add.css" />
-<title>部门我增加</title>
+<title></title>
 </head>
 <body>
 <form action="/cyx/department/update" method="post" id="form" >
-<input type="hidden" name="id" value="${dept.id}">
+<input type="hidden" id="deptId" name="id" value="${dept.id}">
 <input type="hidden" name="ifdelete" value="${dept.ifdelete}">
 <input type="hidden" name="type" value="${dept.type}">
+<input type="hidden" name="regionId" value="${dept.regionId}">
 <table>
 	<tbody>
 		<tr>
@@ -26,9 +27,21 @@
 				<input type="text" name="sort" value="${dept.sort}">
 			</td>
 		</tr>
+		<tr>
+			<th>类型</th>
+			<td colspan="3">
+				<select name="mold"  id="mold">
+					<option></option>
+					<c:forEach items="${moldMap}" var="d">
+						<option value="${d.key}" ${d.key==dept.mold?'selected="selected"':''}>${d.value}</option>
+					</c:forEach>
+				</select>
+				
+			</td>
+		</tr>
 		  <tr>
    	<td colspan="4" style="height:30px;line-height:30px;text-align: center;vertical-align: middle">
-   		<input type="submit"  class="btn" value="提交" style="width: 80px"/>
+   		<input type="button"  class="btn" value="提交" style="width: 80px" onclick="sub()"/>
     	<input type="button" class="btn" value="返回" style="width: 80px" onclick="javascript:history.go(-1);"/>
     </td>
    </tr>
@@ -37,5 +50,19 @@
 </form>
 </body>
   <script type="text/javascript">
+	function sub(){
+  		if($("#mold").val()==""){
+  			alert("类型不能为空");
+  		}else{
+  			$.post("/cyx/department/updateCheckDept",{'mold':$("#mold").val(),'id':$("#deptId").val()},
+  		  			function(msg){
+  		  				if(msg =="yes"){
+  							$("#form").submit();
+  						}else{
+  							alert("本地区已有相同类型部门！");	
+  						}
+  		  		});
+  		}
+  	}
   </script>
 </html>

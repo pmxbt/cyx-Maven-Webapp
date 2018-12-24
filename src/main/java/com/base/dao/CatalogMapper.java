@@ -17,4 +17,6 @@ public interface CatalogMapper {
 	public void delete(Catalog c);
 
 	public void update(Catalog c);
+
+	public List<Catalog> getAllCatalog();
 }

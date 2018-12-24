@@ -30,4 +30,8 @@ public class RegionService {
 		m.updateByPrimaryKey(r);
 	}
 
+	public List<Region> getRegionAllList() {
+		return m.selectAll();
+	}
+
 }

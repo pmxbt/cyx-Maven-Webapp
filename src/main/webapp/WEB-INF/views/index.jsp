@@ -83,7 +83,7 @@ p {
 	  			<span style="font-size: 50px;color: white;line-height: 100px;padding-left: 20px;text-shadow: 5px 2px 6px #000;">楚悠行</span>
 	  		</div>
 	  		<div style="height:30%;width: 100%;float: left;background-color: #99CCCC">
-		  		<div style="float: left;text-align: center;width: 200px;font-size: 14px;line-height: 40px;color: white;">${date1}</div>
+		  		<div style="float: left;text-align: center;width: 200px;font-size: 14px;line-height: 40px;color: white;">${region.name},${date1}</div>
 		  		<c:forEach var="menu1" items="${menu}" >
 		  			<div  onclick="left_menu(${menu1.id})" class="div_menu1" 
 		  					${menu1.id==1?'style="background-color: #3399CC;"':''}>

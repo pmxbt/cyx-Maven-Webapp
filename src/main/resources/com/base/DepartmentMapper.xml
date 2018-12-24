@@ -12,11 +12,14 @@
 	
 	<select id="getDeptList" resultType="com.base.bean.Department">
 		select * from BASE_DEPARTMENT where ifdelete = 0 and type !=1
+		<if test="regionId !=1">
+			and region_id = #{regionId}
+		</if>
 	</select>
 	
 	
 	<insert id="save">
-		insert into BASE_DEPARTMENT(name,sort,ifdelete,type)  values(#{name},#{sort},#{ifdelete},#{type})
+		insert into BASE_DEPARTMENT(name,sort,ifdelete,type,region_id,mold)  values(#{name},#{sort},#{ifdelete},#{type},#{regionId},#{mold})
 	</insert>
 	
 	
@@ -25,7 +28,19 @@
 		name=#{name},
 		sort=#{sort},
 		type=#{type},
-		ifdelete=#{ifdelete}
+		ifdelete=#{ifdelete},
+		region_id=#{regionId},
+		mold=#{mold}
 		where id=#{id}
 	</update>
+	
+		<select id="getDeptListByMold" resultType="com.base.bean.Department">
+		select * from BASE_DEPARTMENT where ifdelete = 0 and type !=1
+		<if test="regionId !=1">
+			and region_id = #{regionId}
+		</if>
+		and mold = #{mold}
+	</select>
+	
+	
 </mapper>

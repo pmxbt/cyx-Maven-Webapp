@@ -13,6 +13,7 @@
 		<result column="password" property="password"/>
 		<result column="name" property="name"/>
 		<result column="telephone" property="telephone"/>
+		<result column="regionId" property="region_id"/>
 		<association property="dept" select="com.base.dao.DepartmentMapper.getDeptById" column="dept_id"></association>
 	</resultMap>
 	
@@ -28,6 +29,9 @@
 
 	<select id="getUserList" resultMap="user1">
 		select a.* from BASE_USER a left join BASE_DEPARTMENT b on a.dept_id = b.id  where a.ifdelete=0 and b.type !=1 
+		<if test="regionId !=1">
+			and a.region_id = #{regionId}
+		</if>
 	</select>
 	
 	<select id="getUserListByDeptId" resultType="com.base.bean.User">
@@ -35,7 +39,7 @@
 	</select>
 	
 	<insert id="save">
-		insert into BASE_USER(userName,password,name,sort,dept_id,ifdelete,telephone) values(#{userName},#{password},#{name},#{sort},#{dept.id},#{ifdelete},#{telephone})
+		insert into BASE_USER(userName,password,name,sort,dept_id,ifdelete,telephone,region_id) values(#{userName},#{password},#{name},#{sort},#{dept.id},#{ifdelete},#{telephone},#{regionId})
 	</insert>
 	
 	<update id="update">
@@ -44,9 +48,10 @@
 		password=#{password},
 		name=#{name},
 		sort=#{sort},
-		dept_id=#{dept_id},
+		dept_id=#{dept.id},
 		ifdelete=#{ifdelete},
-		telephone=#{telephone}
+		telephone=#{telephone},
+		region_id=#{regionId}
 		where id=#{id}
 	</update>
 	

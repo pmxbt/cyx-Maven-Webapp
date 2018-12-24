@@ -8,6 +8,8 @@ public class Department {
 	private int sort;                       //排序
 	private int ifdelete;                   //是否删除0 否   1是
 	private int type;                       //类型
+	private int regionId;                   //地区
+	private int mold;                       //1:维修部  2：文员   3：其他
 	
 	public int getId() {
 		return id;
@@ -39,12 +41,18 @@ public class Department {
 	public void setType(int type) {
 		this.type = type;
 	}
-	@Override
-	public String toString() {
-		return "Department [id=" + id + ", name=" + name + ", sort=" + sort + ", ifdelete=" + ifdelete + ", type="
-				+ type + "]";
+	public int getRegionId() {
+		return regionId;
 	}
-	
+	public void setRegionId(int regionId) {
+		this.regionId = regionId;
+	}
+	public int getMold() {
+		return mold;
+	}
+	public void setMold(int mold) {
+		this.mold = mold;
+	}
 	
 	
 }
